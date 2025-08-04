@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build-LinkedList",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/LinkedList/Src/main.cpp",
+                "${workspaceFolder}/LinkedList/Models/ModelImp/*.cpp",
+                "-I${workspaceFolder}/LinkedList/Models/ModelHeaders",
+                "-I${workspaceFolder}/LinkedList/Models/Templates",
+                "-I${workspaceFolder}/LinkedList/Headers",
+                "-o",
+                "${workspaceFolder}/LinkedList/Build/LinkedList.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher":[
+                "$gcc"
+            ]
+        }
+    ]
+}

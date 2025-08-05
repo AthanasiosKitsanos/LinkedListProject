@@ -14,6 +14,7 @@ struct SinglyLinkedList
     void push_front(const T& value);
     void clear();
     void pop_front();
+    void push_back(const T& value);
 };
 
 #include "SinglyLinkedList.tpp"

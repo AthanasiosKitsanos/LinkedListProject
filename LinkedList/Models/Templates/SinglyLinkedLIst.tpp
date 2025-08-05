@@ -6,7 +6,6 @@ template<typename T>
 std::ostream& operator<<(std::ostream& os, const SinglyLinkedList<T>& list)
 {
     Node<T>* current = list.head;
-
     os << "Likned List:" << std::endl;
     while(current != nullptr)
     {
@@ -99,4 +98,30 @@ void SinglyLinkedList<T>::pop_front()
     toDelete = nullptr;
 
     count--;
+}
+
+template<typename T>
+void SinglyLinkedList<T>::push_back(const T& value)
+{
+    if(count == 0 || head == nullptr)
+    {
+        push_front(value);
+        return;
+    }
+
+    Node<T>* currentNode = head;
+    while(currentNode->next)
+    {
+        currentNode = currentNode->next;
+    }
+
+    size_t bytes = (sizeof(Node<T>) + alignof(Node<T>) - 1) & ~(alignof(Node<T>) - 1);
+    void* rawMemory = _aligned_malloc(bytes, alignof(Node<T>));
+
+    currentNode->next = new(rawMemory) Node<T>();
+
+    new(currentNode->next->data) T(value);
+
+    count++;
+    
 }

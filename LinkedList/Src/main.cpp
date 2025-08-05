@@ -8,8 +8,11 @@ int main()
 
     intList->push_front(5);
     intList->push_front(9);
-
-    std::cout << *intList << std::endl;    
+    intList->push_back(8);
+    
+    std::cout << *intList << std::endl;
+    
+    
 
     intList->pop_front();
 
@@ -20,7 +23,7 @@ int main()
     std::cout << *intList << std::endl;
     intList->pop_front();
 
-    //intList->clear();
+    intList->clear();
 
     intList->~SinglyLinkedList();
 

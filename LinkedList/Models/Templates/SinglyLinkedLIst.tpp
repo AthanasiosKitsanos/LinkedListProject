@@ -283,10 +283,10 @@ int SinglyLinkedList<T>::find(const T& value)
     // }
 
     // return index;
-    
-    for(size_t i = 0; i < count && !current; i++)
+
+    for(int i = 0; i < count; i++)
     {
-        if(*reinterpret_cast<T*>(current->data) == value)
+        if(current && *reinterpret_cast<T*>(current->data) == value)
         {
             return static_cast<int>(i);
         }

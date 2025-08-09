@@ -36,8 +36,6 @@ int main()
     std::cout << "Index of number " << value << ": "  << intList->find(value) << std::endl;
     
     std::cout << "Count: " <<intList->count <<std::endl;
-    int* dataPtr = reinterpret_cast<int*>(intList->head->data);
-    std::cout << "Head: " << *dataPtr << std::endl;
 
     intList->~SinglyLinkedList();
 

@@ -11,19 +11,33 @@ int main()
     intList->push_back(8);
     
     std::cout << *intList << std::endl;
-    
-    
 
-    intList->pop_front();
+    std::cin.get();
 
+    intList->insert_after(1, 10);
+
+    std::cout << "Insert After index 1 number 10" << std::endl;
     std::cout << *intList << std::endl;
+    std::cin.get();
 
-    intList->pop_front();
 
+    std::cout << "Target bigger than count: " << (intList->count < 10 ? "true" : "false") << std::endl;
+    intList->insert_before(10, 3);
+    std::cout << "Insert Before index 10 number 3" << std::endl;
     std::cout << *intList << std::endl;
-    intList->pop_front();
+    std::cin.get();
 
-    intList->clear();
+    intList->replace_at(1, 25);
+    std::cout << "Replaced index 1 (10) with the number 25" << std::endl;
+    std::cout << *intList << std::endl;
+    std::cin.get();
+
+    int value = 9;
+    std::cout << "Index of number " << value << ": "  << intList->find(value) << std::endl;
+    
+    std::cout << "Count: " <<intList->count <<std::endl;
+    int* dataPtr = reinterpret_cast<int*>(intList->head->data);
+    std::cout << "Head: " << *dataPtr << std::endl;
 
     intList->~SinglyLinkedList();
 

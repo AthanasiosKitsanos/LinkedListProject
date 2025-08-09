@@ -271,8 +271,8 @@ int SinglyLinkedList<T>::find(const T& value)
     }
 
     Node<T>* current = head;
-   
-    for(size_t i = 0; i < count; i++)
+
+    for(int i = 0; i < count; i++)
     {
         if(current && *reinterpret_cast<T*>(current->data) == value)
         {

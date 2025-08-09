@@ -32,12 +32,16 @@ int main()
     std::cout << *intList << std::endl;
     std::cin.get();
 
-    int value = 9;
+    int value = 25;
     std::cout << "Index of number " << value << ": "  << intList->find(value) << std::endl;
     
     std::cout << "Count: " <<intList->count <<std::endl;
-    int* dataPtr = reinterpret_cast<int*>(intList->head->data);
-    std::cout << "Head: " << *dataPtr << std::endl;
+    std::cin.get();
+
+    intList->remove(value);
+
+    std::cout << *intList << std::endl;
+    std::cin.get();
 
     intList->~SinglyLinkedList();
 

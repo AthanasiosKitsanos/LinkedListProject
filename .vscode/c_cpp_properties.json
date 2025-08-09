@@ -3,7 +3,9 @@
     {
       "name": "Win32",
       "includePath": [
-        "${workspaceFolder}/**"
+        "${workspaceFolder}/LinkedList/**",
+        "${workspaceFolder}/LinkedList/Models/Templates/**",
+        "${workspaceFolder}/LinkedList/Models/ModelHeaders/**"
       ],
       "defines": [],
       "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",

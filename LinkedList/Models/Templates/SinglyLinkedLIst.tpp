@@ -151,6 +151,7 @@ void SinglyLinkedList<T>::insert_after(const size_t& target, const T& value)
 
         newNode->next = head->next;
         head->next = newNode;
+        count++;
         return;
     }
 
@@ -270,19 +271,6 @@ int SinglyLinkedList<T>::find(const T& value)
     }
 
     Node<T>* current = head;
-    // int index = 0;
-    // while(current && *reinterpret_cast<T*>(current->data) != value)
-    // {
-    //     current = current->next;
-    //     index++;
-
-    //     if(index >= count)
-    //     {
-    //         return -1;
-    //     }
-    // }
-
-    // return index;
 
     for(int i = 0; i < count; i++)
     {
@@ -295,6 +283,52 @@ int SinglyLinkedList<T>::find(const T& value)
     }
 
     return -1;
+}
+
+template<typename T>
+void SinglyLinkedList<T>::remove(const T& value)
+{
+    if(count == 0 || !head)
+    {
+        std::cout << "The list is empty, there is nothing to remove" << std::endl;
+        return;
+    }
+
+    Node<T>* current = head;
+    Node<T>* prev = nullptr;
+
+    T* dataPtr = nullptr;
+
+    for(int i = 0; i < count; i++)
+    {
+        dataPtr = reinterpret_cast<T*>(&(current->data));
+
+        if(*dataPtr == value)
+        {
+            dataPtr->~T();
+
+            if(i == 0)
+            {
+                head = head->next;
+            }
+            else
+            {
+                prev->next = current->next;
+            }
+
+            _aligned_free(current);
+            dataPtr = nullptr;
+            current = nullptr;
+
+            return;
+        }
+
+        prev = current;
+        current = current->next;
+
+    }
+
+    std::cout << "Value not found" << std::endl;
 }
 
 template<typename T>

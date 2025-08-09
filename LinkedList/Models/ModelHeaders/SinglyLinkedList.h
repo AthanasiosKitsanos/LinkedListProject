@@ -20,6 +20,7 @@ struct SinglyLinkedList
     Node<T>* create_node(const T& element);
     void replace_at(const size_t& index, const T& value);
     int find(const T& value);
+    void remove(const T& value);
 };
 
 #include "SinglyLinkedList.tpp"
